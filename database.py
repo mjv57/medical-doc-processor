@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# SQLite database URL (you can change to PostgreSQL/MySQL if needed)
+# SQLite database URL 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./medical_documents.db"
 
 # Create database engine
