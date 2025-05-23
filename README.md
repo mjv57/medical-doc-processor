@@ -32,8 +32,8 @@ This application demonstrates a complete medical document processing pipeline:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/mjv57/medical-doc-processor.git
+cd medical-doc-processor
 ```
 
 ### 2. Set Up Environment Variables
