@@ -152,12 +152,6 @@ python test_rag.py
 
 ## 7. Stopping the Application
 ```bash
-# Stop the Docker containers
-docker-compose down
-```
-# Remove containers and volumes (optional)
-
-```bash
 docker-compose down -v
 ```
 
