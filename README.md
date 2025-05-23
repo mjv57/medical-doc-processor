@@ -161,6 +161,10 @@ docker-compose down
 docker-compose down -v
 ```
 
+```bash
+docker image rm medical-document-processor
+```
+
 ## Troubleshooting
 ```bash
 # View application logs
