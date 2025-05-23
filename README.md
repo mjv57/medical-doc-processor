@@ -89,7 +89,6 @@ docker-compose logs -f
 ### 4. Access the Application
 
 Once running, the API will be available at:
-- **API Base URL**: http://localhost:8000
 - **Interactive Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 
