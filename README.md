@@ -81,7 +81,7 @@ docker build --platform linux/amd64 -t medical-document-processor .
 docker-compose up -d
 ```
 
-#### D. View logs (optional)
+#### D. View logs 
 ```bash
 docker-compose logs -f
 ```
