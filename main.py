@@ -334,7 +334,7 @@ async def answer_question(question: Question, background_tasks: BackgroundTasks,
             detail=f"Error processing question: {str(e)}"
         )
 
-# fet previous questions and answers
+# get previous questions and answers
 @app.get("/questions", response_model=List[Dict[str, Any]])
 async def get_questions(db: Session = Depends(get_db)):
     """Get all previous questions and answers"""
