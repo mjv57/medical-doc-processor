@@ -64,24 +64,24 @@ LOG_LEVEL=info
 ### 3. Build and Start the Application
 
 
-# 1. Navigate to project directory
+#### A. Navigate to project directory
 
 ```bash
 cd /path/to/your/project
 ```
 
-# 2. Build the Docker image
+#### B. Build the Docker image
 
 ```bash
 docker build --platform linux/amd64 -t medical-document-processor .
 ```
 
-# 3. Start the application
+#### C. Start the application
 ```bash
 docker-compose up -d
 ```
 
-# 4. View logs (optional)
+#### D. View logs (optional)
 ```bash
 docker-compose logs -f
 ```
