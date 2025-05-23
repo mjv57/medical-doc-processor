@@ -1,4 +1,3 @@
-# rag_service.py
 from typing import Dict, List, Any, Optional
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain_openai import ChatOpenAI
