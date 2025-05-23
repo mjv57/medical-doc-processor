@@ -1,9 +1,7 @@
-# test_rag.py
 import requests
 import json
 from time import sleep
 
-# Base URL for your FastAPI server
 BASE_URL = "http://127.0.0.1:8000"
 
 def test_answer_question():
