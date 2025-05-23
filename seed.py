@@ -1,4 +1,3 @@
-# seed.py
 import os
 from sqlalchemy.orm import Session
 
