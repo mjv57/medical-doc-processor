@@ -1,4 +1,3 @@
-# test_fhir.py
 import requests
 import json
 
