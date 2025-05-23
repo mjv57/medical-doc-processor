@@ -92,7 +92,7 @@ Once running, the API will be available at:
 - **Interactive Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 
-## 5. Example Usage
+## 5. Manual Testing - Curl commands
 
 ### Health Check
 ```bash
@@ -127,7 +127,30 @@ curl -X POST "http://localhost:8000/documents/1/extract_structured"
 curl -X POST "http://localhost:8000/documents/1/to_fhir"
 ```
 
-## 6. Stopping the Application
+## 6. Python Test Files
+
+#### Test the agent service functionality
+```bash
+python test_agent.py
+```
+
+#### Test FHIR conversion capabilities
+```bash
+python test_fhir.py
+```
+
+#### Test LLM API integration
+```bash
+python test_llm_api.py
+```
+
+#### Test RAG (Retrieval-Augmented Generation) functionality
+```bash
+python test_rag.py
+```
+
+
+## 7. Stopping the Application
 ```bash
 # Stop the Docker containers
 docker-compose down
