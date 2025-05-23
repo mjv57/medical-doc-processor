@@ -1,4 +1,3 @@
-# vector_store.py
 import os
 from typing import List, Dict, Any
 from langchain_openai import OpenAIEmbeddings
