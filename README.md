@@ -20,7 +20,7 @@ This application demonstrates a complete medical document processing pipeline:
 3. **RAG System** - Vector-based document retrieval and question answering
 4. **Medical Code Lookup** - Integration with public health APIs (ICD-10, RxNorm)
 5. **FHIR Compliance** - Healthcare data format standardization
-6. **Docker Containerization** - Production-ready deployment
+6. **Docker Containerization** - Easy setup for testing 
 
 ## Prerequisites
 
