@@ -1,6 +1,6 @@
 # Medical Document Processor
 
-A comprehensive FastAPI application that processes medical documents using Large Language Models (LLMs), extracts structured data, implements Retrieval-Augmented Generation (RAG), and converts data to FHIR format.
+A FastAPI application that processes medical documents using Large Language Models (LLMs), extracts structured data, implements Retrieval-Augmented Generation (RAG), and converts data to FHIR format.
 
 ## Features
 
