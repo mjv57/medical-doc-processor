@@ -70,12 +70,6 @@ LOG_LEVEL=info
 docker build -t medical-document-processor .
 ```
 
-###### Or build for x86_64 (if needed for compatibility)
-```bash
-docker build --platform linux/amd64 -t medical-document-processor .
-```
-
-
 #### B. Start the application
 ```bash
 docker-compose up -d
@@ -167,3 +161,31 @@ docker-compose logs -f
 ```bash
 docker-compose logs app
 ```
+
+## System Compatibility 
+
+###### Getting this error when running docker-compose up can result in a failure to start the application. 
+
+```bash
+The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested.
+```
+
+###### Fix: add below line above build in docker-compose.yml
+
+```bash
+services:
+  app:
+    platform: linux/arm64  # Fix here
+    build: .
+    container_name: medical-document-processor
+```
+
+##### Rebuild following fix: 
+
+```bash
+docker-compose down -v
+docker build --no-cache -t medical-document-processor .
+docker-compose up -d
+```
+
+
