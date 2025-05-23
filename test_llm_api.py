@@ -1,8 +1,6 @@
-# test_llm_api.py
 import requests
 import json
 
-# Base URL for your FastAPI server
 BASE_URL = "http://127.0.0.1:8000"
 
 def test_summarize_note():
