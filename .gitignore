@@ -1,0 +1,24 @@
+# Sensitive files - DO NOT COMMIT
+.env
+medical_doc_parser_openai_apikey.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Databases (these will be recreated)
+*.db
+*.sqlite3
+vector_db/
+
+# Docker
+.langchain.db
+
+# OS files
+.DS_Store
+
+# Logs
+*.log

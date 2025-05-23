@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: medical-document-processor
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./vector_db:/app/vector_db
+    env_file:
+      - .env
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    restart: unless-stopped
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
