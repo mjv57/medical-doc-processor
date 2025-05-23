@@ -258,7 +258,7 @@ class FHIRConverter:
                     except (ValueError, IndexError):
                         pass
             
-            # Heart Rate
+            
             if "heart_rate" in vital_signs and vital_signs["heart_rate"]:
                 hr_text = vital_signs["heart_rate"]
                 try:
@@ -305,7 +305,7 @@ class FHIRConverter:
                 except (ValueError, IndexError):
                     pass
             
-            # Weight
+            
             if "weight" in vital_signs and vital_signs["weight"]:
                 weight_text = vital_signs["weight"]
                 try:
@@ -352,7 +352,7 @@ class FHIRConverter:
                 except (ValueError, IndexError):
                     pass
             
-            # BMI
+            
             if "bmi" in vital_signs and vital_signs["bmi"]:
                 try:
                     bmi_value = float(vital_signs["bmi"])
@@ -398,7 +398,7 @@ class FHIRConverter:
                 except (ValueError, TypeError):
                     pass
         
-        # Lab results (only placeholders since the values aren't available)
+        
         if "lab_results" in data and data["lab_results"]:
             for i, (test_name, test_value) in enumerate(data["lab_results"].items()):
                 if test_name:
