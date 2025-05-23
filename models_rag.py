@@ -1,4 +1,3 @@
-# models_rag.py
 from sqlalchemy import Column, Integer, String, Text, Float, JSON
 from sqlalchemy.sql import func
 from sqlalchemy.types import DateTime
