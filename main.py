@@ -66,6 +66,9 @@ app = FastAPI()
 # Initialize LLM service
 llm_service = LLMService()
 
+# Initialize Agent
+medical_agent = MedicalExtractionAgent()
+
 # Initialize RAG service
 rag_service = None
 
@@ -364,8 +367,6 @@ def save_question_answer(db: Session, question: str, answer: str, sources: List[
         db.rollback()
 
 
-
-medical_agent = MedicalExtractionAgent()
 
 
 # Add new endpoint
