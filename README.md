@@ -67,14 +67,20 @@ LOG_LEVEL=info
 #### A. Navigate to project directory
 
 ```bash
-cd /path/to/your/project
+cd path/
 ```
 
 #### B. Build the Docker image
 
 ```bash
+docker build -t medical-document-processor .
+```
+
+###### Or build for x86_64 (if needed for compatibility)
+```bash
 docker build --platform linux/amd64 -t medical-document-processor .
 ```
+
 
 #### C. Start the application
 ```bash
