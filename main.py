@@ -1,11 +1,10 @@
-# main.py
+
 from typing import List, Optional, Dict, Any
 import hashlib
 import json
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-
 from database import get_db, engine, SessionLocal
 from models import Document as DocumentModel
 import models
@@ -14,11 +13,8 @@ from models_rag import UserQuestion
 from seed import create_tables, seed_database
 from llm_service import LLMService
 from rag_service import RAGService
-
 from agent_service import MedicalExtractionAgent
 from models_agent import StructuredMedicalData
-
-# Add these imports to main.py
 from fhir_service import FHIRConverter
 from models_fhir import FHIRConversionRequest, FHIRConversionResponse
 
@@ -71,6 +67,10 @@ medical_agent = MedicalExtractionAgent()
 
 # Initialize RAG service
 rag_service = None
+
+
+# Initialize FHIR Conversion
+fhir_converter = FHIRConverter()
 
 # Create tables and seed database on startup
 @app.on_event("startup")
@@ -171,7 +171,7 @@ async def summarize_note(note: NoteText, db: Session = Depends(get_db)):
             detail=f"Error processing request: {str(e)}"
         )
 
-# Summarize a document by ID
+# summarize a document by ID
 @app.post("/documents/{document_id}/summarize", response_model=LLMResult)
 async def summarize_document(
     document_id: int, 
@@ -215,7 +215,7 @@ async def summarize_document(
             detail=f"Error processing request: {str(e)}"
         )
 
-# Extract patient info from a document
+# extract patient info from a document
 @app.post("/documents/{document_id}/extract_info", response_model=LLMResult)
 async def extract_document_info(
     document_id: int, 
@@ -259,7 +259,7 @@ async def extract_document_info(
             detail=f"Error processing request: {str(e)}"
         )
 
-# Simplify a document for patient understanding
+# simplify a document for patient understanding
 @app.post("/documents/{document_id}/simplify", response_model=LLMResult)
 async def simplify_document(
     document_id: int, 
@@ -334,7 +334,7 @@ async def answer_question(question: Question, background_tasks: BackgroundTasks,
             detail=f"Error processing question: {str(e)}"
         )
 
-# Get previous questions and answers
+# fet previous questions and answers
 @app.get("/questions", response_model=List[Dict[str, Any]])
 async def get_questions(db: Session = Depends(get_db)):
     """Get all previous questions and answers"""
@@ -351,7 +351,7 @@ async def get_questions(db: Session = Depends(get_db)):
         for q in questions
     ]
 
-# Function to save question and answer to database
+# function to save question and answer to database
 def save_question_answer(db: Session, question: str, answer: str, sources: List[Dict[str, Any]]):
     """Save a question and its answer to the database"""
     try:
@@ -369,7 +369,7 @@ def save_question_answer(db: Session, question: str, answer: str, sources: List[
 
 
 
-# Add new endpoint
+# extract structured medical data 
 @app.post("/extract_structured", response_model=Dict[str, Any])
 async def extract_structured_data(note: MedicalNoteText):
     """Extract structured data from a medical note"""
@@ -384,7 +384,7 @@ async def extract_structured_data(note: MedicalNoteText):
             detail=f"Error extracting structured data: {str(e)}"
         )
 
-# Add endpoint to extract from existing document
+# endpoint to extract from existing document
 @app.post("/documents/{document_id}/extract_structured", response_model=Dict[str, Any])
 async def extract_structured_from_document(document_id: int, db: Session = Depends(get_db)):
     """Extract structured data from an existing document"""
@@ -406,8 +406,7 @@ async def extract_structured_from_document(document_id: int, db: Session = Depen
 
 
 
-fhir_converter = FHIRConverter()
-# Add this endpoint to convert structured data to FHIR
+# convert structured data to FHIR
 @app.post("/to_fhir", response_model=FHIRConversionResponse)
 async def convert_to_fhir(request: FHIRConversionRequest):
     """Convert structured data to FHIR format"""
@@ -429,7 +428,7 @@ async def convert_to_fhir(request: FHIRConversionRequest):
             detail=f"Error converting to FHIR: {str(e)}"
         )
 
-# Add endpoint to convert document directly to FHIR
+# endpoint to convert document directly to FHIR
 @app.post("/documents/{document_id}/to_fhir", response_model=FHIRConversionResponse)
 async def document_to_fhir(document_id: int, db: Session = Depends(get_db)):
     """Extract structured data from a document and convert to FHIR"""
