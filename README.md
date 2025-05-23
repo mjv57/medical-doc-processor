@@ -170,7 +170,7 @@ docker-compose logs app
 The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested.
 ```
 
-###### Fix: add below line above build in docker-compose.yml
+###### IF the application does not start, implement Fix: add below line above build in docker-compose.yml
 
 ```bash
 services:
